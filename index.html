@@ -6,208 +6,254 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin:0;
-    font-family: "Fira Code", monospace;
-    background:#0b0e0e;
-    color:#d0f6e6;
-  }
+:root {
+  --accent: #15e6c8;
+  --bg: #0b0e0e;
+  --panel: #101414;
+  --border: rgba(21,230,200,0.2);
+}
+html, body {
+  margin:0;
+  padding:0;
+  font-family:"Fira Code", monospace;
+  background:var(--bg);
+  color:#d7fff5;
+  overflow-x:hidden;
+}
 
-  /* Terminal intro typing */
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  @keyframes blink {
-    50% { border-color: transparent }
-  }
+/* particles container */
+#particles-js {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-3;
+}
 
-  header {
-    padding:80px 20px;
-    text-align:center;
-    background:radial-gradient(circle,#0f1717,#050808);
-  }
+/* subtle CRT grain */
+body:before {
+  content:"";
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  background:url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity:0.22;
+  z-index:-2;
+}
 
-  .ascii {
-    white-space:pre;
-    color:#00ffb3;
-    font-size:12px;
-    opacity:0.9;
-    margin-bottom:20px;
-  }
+/* boot screen */
+#boot {
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:var(--bg);
+  padding:40px;
+  color:var(--accent);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  font-size:14px;
+  line-height:1.5;
+}
+.hide { display:none; }
 
-  .terminal {
-    max-width:620px;
-    margin:0 auto;
-    background:#0f1414;
-    padding:18px;
-    border-radius:6px;
-    font-size:14px;
-    border:1px solid #083b31;
-    box-shadow:0 0 10px rgba(0,255,200,0.07);
-  }
+/* terminal */
+.terminal {
+  max-width:720px;
+  margin:0 auto;
+  background:var(--panel);
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  margin-top:40px;
+  box-shadow:0 0 12px rgba(21,230,200,0.08);
+  min-height:130px;
+}
+#term div { color:var(--accent); white-space:pre; }
 
-  .line {
-    display:block;
-    overflow:hidden;
-    border-right: .15em solid #00ffb3;
-    white-space:nowrap;
-    width:0;
-    animation:
-      typing 2.5s steps(40, end) forwards,
-      blink .8s infinite;
-  }
-
-  .tagline {
-    margin-top:18px;
-    font-size:18px;
-    color:#7fe9c2;
-    letter-spacing:1px;
-    text-shadow:0 0 4px #00ffb3;
-  }
-
-  section {
-    max-width:1020px;
-    margin:60px auto;
-    padding:0 20px;
-  }
-
-  h2 {
-    font-size:26px;
-    margin-bottom:12px;
-    color:#8dfcd4;
-    text-shadow:0 0 4px #00ffb3;
-  }
-
-  .card {
-    background:#0f1414;
-    padding:20px;
-    border-radius:8px;
-    margin-bottom:22px;
-    border:1px solid #113c3c;
-    box-shadow:0 0 12px rgba(0,255,200,0.05);
-  }
-
-  a { color:#00ffc3; text-decoration:none; }
-
-  ul { padding-left:20px; }
-
-  footer {
-    text-align:center;
-    padding:45px;
-    color:#58bfa2;
-    letter-spacing:1px;
-    border-top:1px solid #083b31;
-    margin-top:80px;
-  }
-
-  .badge {
-    background:#083b31;
-    padding:3px 8px;
-    font-size:12px;
-    border-radius:4px;
-    color:#00ffb3;
-    border:1px solid #00ffb3;
-    margin-right:6px;
-  }
+/* sections */
+section {
+  max-width:980px;
+  margin:60px auto;
+  padding:0 20px;
+}
+.panel {
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 0 12px rgba(21,230,200,0.05);
+  margin-bottom:26px;
+}
+h2 {
+  color:var(--accent);
+  margin-bottom:10px;
+  font-size:22px;
+}
+ul { padding-left:20px; }
+.badge {
+  padding:3px 8px;
+  font-size:12px;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  border-radius:4px;
+  margin-right:6px;
+}
+footer {
+  text-align:center;
+  padding:35px;
+  color:var(--accent);
+  border-top:1px solid var(--border);
+  margin-top:100px;
+}
+pre.ascii {
+  color:var(--accent);
+  font-size:11px;
+  white-space:pre;
+  opacity:0.9;
+  text-align:center;
+  margin-bottom:10px;
+}
 </style>
 </head>
 <body>
 
-<header>
+<div id="particles-js"></div>
+
+<!-- BOOT SEQUENCE -->
+<div id="boot"></div>
+
+<!-- MAIN CONTENT -->
+<header style="text-align:center;margin-top:60px;">
 <pre class="ascii">
       __====-_  _-====__
    _--^^^#####//      \\\#####^^^--_
  _-^##########//  H A C R A G O N  \\\##########^-_
 -############//      /   \\      \\\############-
 </pre>
-
-<div class="terminal">
-  <span class="line" style="animation-delay:.2s">> whoami</span>
-  <span class="line" style="animation-delay:2.9s">subin kumar aka hacragon</span>
-  <span class="line" style="animation-delay:5.2s">role: application security & bug bounty</span>
-  <span class="line" style="animation-delay:8.2s">status: hunting...</span>
-</div>
-
-<p class="tagline">offensive security • bug bounty • research</p>
+<div class="terminal" id="term"></div>
+<p style="margin-top:16px;color:var(--accent);">offensive security • bug bounty • research</p>
 </header>
 
 <section>
-<h2>[ About ]</h2>
-<div class="card">
-  <p>I am an application security researcher focused on offensive web security, bug bounty hunting, and CTF challenge design. Recognized in multiple Hall of Fames including Ola, Remitly & Opera. Passionate about subdomain takeover research, exploitation, and improving product security.</p>
+<h2>[ whoami ]</h2>
+<div class="panel">
+I am an application security researcher + bug bounty hunter specializing in offensive web security, subdomain takeover research, and CTF challenge design.
+Recognized in multiple Halls of Fame including Ola, Remitly & Opera.
 </div>
 </section>
 
 <section>
-<h2>[ Skills & Toolchain ]</h2>
-<div class="card">
+<h2>[ capabilities ]</h2>
+<div class="panel">
 <ul>
-  <li>Web App Security & Threat Modeling</li>
-  <li>Bug Bounty & Responsible Disclosure</li>
-  <li>Burp Suite, Nmap, Kali Linux</li>
-  <li>Python / Bash / Recon Automation</li>
-  <li>Subdomain Takeover Research</li>
-  <li>CTF Challenge Development</li>
+<li>Reconnaissance & Surface Mapping</li>
+<li>Web Exploitation & Misconfig Analysis</li>
+<li>Subdomain Takeover Fingerprinting</li>
+<li>Bug Bounty & Responsible Disclosure</li>
+<li>Security Reporting & PoC Engineering</li>
+<li>CTF Challenge Development</li>
+<li>Automation (Python + Bash)</li>
 </ul>
 </div>
 </section>
 
 <section>
-<h2>[ Hall of Fame / Validations ]</h2>
-<div class="card">
-<p>
+<h2>[ scoreboard ]</h2>
+<div class="panel">
 <span class="badge">Ola</span>
 <span class="badge">Opera</span>
 <span class="badge">Remitly</span>
-<span class="badge">Triaged</span>
-<span class="badge">Valid</span>
 <span class="badge">HoF</span>
-</p>
+<span class="badge">Triaged</span>
+<span class="badge">Paid</span>
+<span class="badge">Valid</span>
 </div>
 </section>
 
 <section>
-<h2>[ Experience ]</h2>
-<div class="card">
-<p><strong>Hacktify Cyber Security</strong> — Internship<br>Designed CTF challenges, performed VAPT & supported training.</p>
-<p><strong>Engineer Core</strong> — Internship<br>Conducted offensive research & web security assessments.</p>
+<h2>[ research ]</h2>
+<div class="panel">
+Subdomain Takeover Research — fingerprinting & PoC validation across multiple cloud providers, CDNs & SaaS platforms.
+Includes detection patterns, cloud claim flows & mitigation paths.
 </div>
 </section>
 
 <section>
-<h2>[ Research / Projects ]</h2>
-<div class="card">
-<ul>
-  <li>Subdomain Takeover Research Framework (fingerprinting + PoC)</li>
-  <li>Military Hackathon CTF Challenge Series</li>
-  <li>Blind & Stored XSS exploitation research</li>
-  <li>Recon automation scripts</li>
-</ul>
+<h2>[ ctf ]</h2>
+<div class="panel">
+Designed military hackathon CTF challenges including web exploitation tracks, recon nodes & red team puzzles to train and assess operators.
 </div>
 </section>
 
 <section>
-<h2>[ Education ]</h2>
-<div class="card">
-<p>MSc Cyber Security</p>
+<h2>[ tools ]</h2>
+<div class="panel">
+Recon & exploitation utilities written in Python + Bash used for subdomain enumeration, fingerprinting & automation of takeover checks.
 </div>
 </section>
 
 <section>
-<h2>[ Contact ]</h2>
-<div class="card">
-<p>
-Email: &lt;add&gt;<br>
-GitHub: <a href="https://github.com/hacragon" target="_blank">github.com/hacragon</a><br>
-Medium: &lt;add&gt;
-</p>
+<h2>[ contact ]</h2>
+<div class="panel">
+GitHub: https://github.com/hacragon<br>
+Email: &lt;add&gt;
 </div>
 </section>
 
 <footer>
 UNDER SURVEILLANCE — © 2026 — hacragon
 </footer>
+
+<script>
+// boot sequence text
+const bootLines = [
+"initializing environment...",
+"loading modules...",
+"establishing secure session...",
+"retrieving workstation identidade...",
+"connection established",
+"welcome, hacragon"
+];
+let bi=0;
+function bootNext(){
+ if(bi>=bootLines.length){document.getElementById('boot').classList.add('hide'); typeNext(); return;}
+ let line=document.createElement('div');
+ line.textContent=bootLines[bi];
+ document.getElementById('boot').appendChild(line);
+ bi++; setTimeout(bootNext,550);
+}
+bootNext();
+
+// terminal typing
+const termLines=[
+"> whoami",
+"subin kumar aka hacragon",
+"role: application security & bug bounty",
+"status: operational"
+];
+let ti=0;
+function typeNext(){
+ if(ti>=termLines.length) return;
+ let div=document.createElement('div');
+ document.getElementById('term').appendChild(div);
+ let text=termLines[ti]; let pos=0;
+ let t=setInterval(()=>{
+  div.textContent=text.substring(0,pos);
+  pos++;
+  if(pos>text.length){clearInterval(t); ti++; setTimeout(typeNext,400);}
+ },40);
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js",{
+ "particles":{"number":{"value":65},"color":{"value":"#15e6c8"},"size":{"value":2},"line_linked":{"enable":true,"color":"#15e6c8","opacity":0.4},"move":{"speed":1.2}},"interactivity":{"events":{"onhover":{"enable":true,"mode":"grab"}}}
+});
+</script>
 
 </body>
 </html>
