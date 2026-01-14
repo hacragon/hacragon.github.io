@@ -2,258 +2,153 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>hacragon — application security & bug bounty</title>
+<title>Subin Kumar — Security Researcher</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --accent: #15e6c8;
-  --bg: #0b0e0e;
-  --panel: #101414;
-  --border: rgba(21,230,200,0.2);
-}
-html, body {
+body {
   margin:0;
-  padding:0;
-  font-family:"Fira Code", monospace;
-  background:var(--bg);
-  color:#d7fff5;
-  overflow-x:hidden;
+  font-family:'Inter', sans-serif;
+  background:#0d1012;
+  color:#e9f1f0;
+  line-height:1.6;
+}
+a { color:#5ad4d6; text-decoration:none; }
+.container { max-width:960px; margin:0 auto; padding:20px; }
+
+header {
+  text-align:center;
+  padding:100px 20px 60px;
+}
+header h1 {
+  font-size:42px;
+  margin-bottom:10px;
+  font-weight:600;
+}
+header p.subtitle {
+  color:#a9b8b8;
+  font-size:18px;
+  margin-bottom:20px;
 }
 
-/* particles container */
-#particles-js {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-3;
+section { margin-bottom:60px; }
+h2 {
+  font-size:24px;
+  font-weight:600;
+  margin-bottom:14px;
 }
-
-/* subtle CRT grain */
-body:before {
-  content:"";
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  pointer-events:none;
-  background:url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity:0.22;
-  z-index:-2;
-}
-
-/* boot screen */
-#boot {
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:var(--bg);
-  padding:40px;
-  color:var(--accent);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  font-size:14px;
-  line-height:1.5;
-}
-.hide { display:none; }
-
-/* terminal */
-.terminal {
-  max-width:720px;
-  margin:0 auto;
-  background:var(--panel);
-  padding:18px;
-  border:1px solid var(--border);
-  border-radius:6px;
-  margin-top:40px;
-  box-shadow:0 0 12px rgba(21,230,200,0.08);
-  min-height:130px;
-}
-#term div { color:var(--accent); white-space:pre; }
-
-/* sections */
-section {
-  max-width:980px;
-  margin:60px auto;
-  padding:0 20px;
-}
-.panel {
-  background:var(--panel);
-  border:1px solid var(--border);
+.card {
+  background:#131718;
   padding:20px;
   border-radius:8px;
-  box-shadow:0 0 12px rgba(21,230,200,0.05);
-  margin-bottom:26px;
+  margin-bottom:16px;
+  border:1px solid #1f2627;
 }
-h2 {
-  color:var(--accent);
-  margin-bottom:10px;
-  font-size:22px;
-}
-ul { padding-left:20px; }
 .badge {
-  padding:3px 8px;
-  font-size:12px;
-  border:1px solid var(--accent);
-  color:var(--accent);
+  display:inline-block;
+  padding:4px 8px;
   border-radius:4px;
+  font-size:12px;
+  background:#1f2b2c;
+  color:#70e2e4;
   margin-right:6px;
 }
 footer {
   text-align:center;
-  padding:35px;
-  color:var(--accent);
-  border-top:1px solid var(--border);
-  margin-top:100px;
-}
-pre.ascii {
-  color:var(--accent);
-  font-size:11px;
-  white-space:pre;
-  opacity:0.9;
-  text-align:center;
-  margin-bottom:10px;
+  padding:40px;
+  color:#859494;
+  border-top:1px solid #1c2223;
+  margin-top:40px;
 }
 </style>
 </head>
 <body>
 
-<div id="particles-js"></div>
+<div class="container">
 
-<!-- BOOT SEQUENCE -->
-<div id="boot"></div>
-
-<!-- MAIN CONTENT -->
-<header style="text-align:center;margin-top:60px;">
-<pre class="ascii">
-      __====-_  _-====__
-   _--^^^#####//      \\\#####^^^--_
- _-^##########//  H A C R A G O N  \\\##########^-_
--############//      /   \\      \\\############-
-</pre>
-<div class="terminal" id="term"></div>
-<p style="margin-top:16px;color:var(--accent);">offensive security • bug bounty • research</p>
+<header>
+  <h1>Subin Kumar</h1>
+  <p class="subtitle">Application Security Researcher & Bug Bounty Hunter</p>
+  <p>
+    GitHub: <a href="https://github.com/hacragon" target="_blank">github.com/hacragon</a> ·
+    Email: <em>add_here</em>
+  </p>
 </header>
 
 <section>
-<h2>[ whoami ]</h2>
-<div class="panel">
-I am an application security researcher + bug bounty hunter specializing in offensive web security, subdomain takeover research, and CTF challenge design.
-Recognized in multiple Halls of Fame including Ola, Remitly & Opera.
+<h2>About</h2>
+<div class="card">
+I am an application security researcher specializing in offensive web security, bug bounty hunting, and subdomain takeover research. 
+I have been recognized in multiple company Hall of Fames including Ola, Opera and Remitly, and have contributed to increasing the security resilience of production environments through responsible disclosure.
 </div>
 </section>
 
 <section>
-<h2>[ capabilities ]</h2>
-<div class="panel">
-<ul>
-<li>Reconnaissance & Surface Mapping</li>
-<li>Web Exploitation & Misconfig Analysis</li>
-<li>Subdomain Takeover Fingerprinting</li>
-<li>Bug Bounty & Responsible Disclosure</li>
-<li>Security Reporting & PoC Engineering</li>
-<li>CTF Challenge Development</li>
-<li>Automation (Python + Bash)</li>
-</ul>
+<h2>Experience</h2>
+<div class="card">
+<strong>Hacktify Cyber Security</strong> — Internship<br>
+Designed Capture-the-Flag (CTF) challenges, performed web application security testing, and supported hands-on cyber training sessions for participants.
+</div>
+<div class="card">
+<strong>Engineer Core</strong> — Internship<br>
+Conducted offensive security research and vulnerability assessments across web targets, focusing on exploitation paths, misconfigurations, and practical PoCs.
 </div>
 </section>
 
 <section>
-<h2>[ scoreboard ]</h2>
-<div class="panel">
+<h2>Bug Bounty & Security Research</h2>
+<div class="card">
+Recognitions:<br><br>
 <span class="badge">Ola</span>
 <span class="badge">Opera</span>
 <span class="badge">Remitly</span>
-<span class="badge">HoF</span>
 <span class="badge">Triaged</span>
-<span class="badge">Paid</span>
 <span class="badge">Valid</span>
+<span class="badge">Paid</span>
+</div>
+<div class="card">
+Primary research areas include:<br>
+• Subdomain Takeover Fingerprinting & Cloud Claim Flows<br>
+• Misconfigurations & Access Control Weaknesses<br>
+• XSS Variants (Reflected, Stored & Blind)<br>
+• Recon Automation for Bug Bounty<br>
 </div>
 </section>
 
 <section>
-<h2>[ research ]</h2>
-<div class="panel">
-Subdomain Takeover Research — fingerprinting & PoC validation across multiple cloud providers, CDNs & SaaS platforms.
-Includes detection patterns, cloud claim flows & mitigation paths.
+<h2>Projects & Tools</h2>
+<div class="card">
+Developed recon and exploitation tooling in Python and Bash used for enumeration, fingerprinting, and validation of takeover candidates across SaaS providers and cloud platforms.
 </div>
 </section>
 
 <section>
-<h2>[ ctf ]</h2>
-<div class="panel">
-Designed military hackathon CTF challenges including web exploitation tracks, recon nodes & red team puzzles to train and assess operators.
+<h2>CTF & Training</h2>
+<div class="card">
+Designed web exploitation CTF challenges used in military hackathons, training scenarios, and cybersecurity learning environments to enable hands-on practice for operators.
 </div>
 </section>
 
 <section>
-<h2>[ tools ]</h2>
-<div class="panel">
-Recon & exploitation utilities written in Python + Bash used for subdomain enumeration, fingerprinting & automation of takeover checks.
+<h2>Education</h2>
+<div class="card">
+MSc in Cyber Security
 </div>
 </section>
 
 <section>
-<h2>[ contact ]</h2>
-<div class="panel">
-GitHub: https://github.com/hacragon<br>
-Email: &lt;add&gt;
+<h2>Contact</h2>
+<div class="card">
+Open to opportunities in Application Security, Research, Bug Bounty, and Offensive Security Engineering.<br><br>
+GitHub: <a href="https://github.com/hacragon" target="_blank">github.com/hacragon</a><br>
+Email: <em>add_here</em>
 </div>
 </section>
 
 <footer>
-UNDER SURVEILLANCE — © 2026 — hacragon
+© 2026 — Subin Kumar (hacragon)
 </footer>
 
-<script>
-// boot sequence text
-const bootLines = [
-"initializing environment...",
-"loading modules...",
-"establishing secure session...",
-"retrieving workstation identidade...",
-"connection established",
-"welcome, hacragon"
-];
-let bi=0;
-function bootNext(){
- if(bi>=bootLines.length){document.getElementById('boot').classList.add('hide'); typeNext(); return;}
- let line=document.createElement('div');
- line.textContent=bootLines[bi];
- document.getElementById('boot').appendChild(line);
- bi++; setTimeout(bootNext,550);
-}
-bootNext();
-
-// terminal typing
-const termLines=[
-"> whoami",
-"subin kumar aka hacragon",
-"role: application security & bug bounty",
-"status: operational"
-];
-let ti=0;
-function typeNext(){
- if(ti>=termLines.length) return;
- let div=document.createElement('div');
- document.getElementById('term').appendChild(div);
- let text=termLines[ti]; let pos=0;
- let t=setInterval(()=>{
-  div.textContent=text.substring(0,pos);
-  pos++;
-  if(pos>text.length){clearInterval(t); ti++; setTimeout(typeNext,400);}
- },40);
-}
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-particlesJS("particles-js",{
- "particles":{"number":{"value":65},"color":{"value":"#15e6c8"},"size":{"value":2},"line_linked":{"enable":true,"color":"#15e6c8","opacity":0.4},"move":{"speed":1.2}},"interactivity":{"events":{"onhover":{"enable":true,"mode":"grab"}}}
-});
-</script>
-
+</div>
 </body>
 </html>
