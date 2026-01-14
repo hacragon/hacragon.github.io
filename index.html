@@ -1,10 +1,213 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Subdomain PoC</title>
-  </head>
-  <body>
-    <h1>hacragon</h1>
-    <p>testing</p>
-  </body>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>hacragon — application security & bug bounty</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin:0;
+    font-family: "Fira Code", monospace;
+    background:#0b0e0e;
+    color:#d0f6e6;
+  }
+
+  /* Terminal intro typing */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes blink {
+    50% { border-color: transparent }
+  }
+
+  header {
+    padding:80px 20px;
+    text-align:center;
+    background:radial-gradient(circle,#0f1717,#050808);
+  }
+
+  .ascii {
+    white-space:pre;
+    color:#00ffb3;
+    font-size:12px;
+    opacity:0.9;
+    margin-bottom:20px;
+  }
+
+  .terminal {
+    max-width:620px;
+    margin:0 auto;
+    background:#0f1414;
+    padding:18px;
+    border-radius:6px;
+    font-size:14px;
+    border:1px solid #083b31;
+    box-shadow:0 0 10px rgba(0,255,200,0.07);
+  }
+
+  .line {
+    display:block;
+    overflow:hidden;
+    border-right: .15em solid #00ffb3;
+    white-space:nowrap;
+    width:0;
+    animation:
+      typing 2.5s steps(40, end) forwards,
+      blink .8s infinite;
+  }
+
+  .tagline {
+    margin-top:18px;
+    font-size:18px;
+    color:#7fe9c2;
+    letter-spacing:1px;
+    text-shadow:0 0 4px #00ffb3;
+  }
+
+  section {
+    max-width:1020px;
+    margin:60px auto;
+    padding:0 20px;
+  }
+
+  h2 {
+    font-size:26px;
+    margin-bottom:12px;
+    color:#8dfcd4;
+    text-shadow:0 0 4px #00ffb3;
+  }
+
+  .card {
+    background:#0f1414;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:22px;
+    border:1px solid #113c3c;
+    box-shadow:0 0 12px rgba(0,255,200,0.05);
+  }
+
+  a { color:#00ffc3; text-decoration:none; }
+
+  ul { padding-left:20px; }
+
+  footer {
+    text-align:center;
+    padding:45px;
+    color:#58bfa2;
+    letter-spacing:1px;
+    border-top:1px solid #083b31;
+    margin-top:80px;
+  }
+
+  .badge {
+    background:#083b31;
+    padding:3px 8px;
+    font-size:12px;
+    border-radius:4px;
+    color:#00ffb3;
+    border:1px solid #00ffb3;
+    margin-right:6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+<pre class="ascii">
+      __====-_  _-====__
+   _--^^^#####//      \\\#####^^^--_
+ _-^##########//  H A C R A G O N  \\\##########^-_
+-############//      /   \\      \\\############-
+</pre>
+
+<div class="terminal">
+  <span class="line" style="animation-delay:.2s">> whoami</span>
+  <span class="line" style="animation-delay:2.9s">subin kumar aka hacragon</span>
+  <span class="line" style="animation-delay:5.2s">role: application security & bug bounty</span>
+  <span class="line" style="animation-delay:8.2s">status: hunting...</span>
+</div>
+
+<p class="tagline">offensive security • bug bounty • research</p>
+</header>
+
+<section>
+<h2>[ About ]</h2>
+<div class="card">
+  <p>I am an application security researcher focused on offensive web security, bug bounty hunting, and CTF challenge design. Recognized in multiple Hall of Fames including Ola, Remitly & Opera. Passionate about subdomain takeover research, exploitation, and improving product security.</p>
+</div>
+</section>
+
+<section>
+<h2>[ Skills & Toolchain ]</h2>
+<div class="card">
+<ul>
+  <li>Web App Security & Threat Modeling</li>
+  <li>Bug Bounty & Responsible Disclosure</li>
+  <li>Burp Suite, Nmap, Kali Linux</li>
+  <li>Python / Bash / Recon Automation</li>
+  <li>Subdomain Takeover Research</li>
+  <li>CTF Challenge Development</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>[ Hall of Fame / Validations ]</h2>
+<div class="card">
+<p>
+<span class="badge">Ola</span>
+<span class="badge">Opera</span>
+<span class="badge">Remitly</span>
+<span class="badge">Triaged</span>
+<span class="badge">Valid</span>
+<span class="badge">HoF</span>
+</p>
+</div>
+</section>
+
+<section>
+<h2>[ Experience ]</h2>
+<div class="card">
+<p><strong>Hacktify Cyber Security</strong> — Internship<br>Designed CTF challenges, performed VAPT & supported training.</p>
+<p><strong>Engineer Core</strong> — Internship<br>Conducted offensive research & web security assessments.</p>
+</div>
+</section>
+
+<section>
+<h2>[ Research / Projects ]</h2>
+<div class="card">
+<ul>
+  <li>Subdomain Takeover Research Framework (fingerprinting + PoC)</li>
+  <li>Military Hackathon CTF Challenge Series</li>
+  <li>Blind & Stored XSS exploitation research</li>
+  <li>Recon automation scripts</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2>[ Education ]</h2>
+<div class="card">
+<p>MSc Cyber Security</p>
+</div>
+</section>
+
+<section>
+<h2>[ Contact ]</h2>
+<div class="card">
+<p>
+Email: &lt;add&gt;<br>
+GitHub: <a href="https://github.com/hacragon" target="_blank">github.com/hacragon</a><br>
+Medium: &lt;add&gt;
+</p>
+</div>
+</section>
+
+<footer>
+UNDER SURVEILLANCE — © 2026 — hacragon
+</footer>
+
+</body>
 </html>
